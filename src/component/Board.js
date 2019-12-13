@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { inject, observer } from 'mobx-react';
-import * as CONSTANTS from "../models/constants";
+import * as CONSTANTS from "../include/constants";
 import Cell from './Cell'
 
 const boardStyle = {

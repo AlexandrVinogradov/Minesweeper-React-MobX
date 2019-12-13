@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Board from './Board';
 import { inject, observer } from 'mobx-react';
-import * as CONSTANTS from '../models/constants';
+import * as CONSTANTS from '../include/constants';
 import Navigation from "react-toolbox/lib/navigation";
 import Button from "react-toolbox/lib/button";
 

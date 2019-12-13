@@ -12,7 +12,6 @@ const App = () => {
         <Game/>
       </Provider>
   );
-
 }
 
 export default App;

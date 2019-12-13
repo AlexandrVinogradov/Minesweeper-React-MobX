@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Board from './Board';
 import { inject, observer } from 'mobx-react';
 import * as CONSTANTS from '../models/constants';
 import Navigation from "react-toolbox/lib/navigation";
@@ -49,8 +50,10 @@ class Game extends Component {
     gameBoard() {
         return (this.props.mainStore.gameStatus == CONSTANTS.GAME_STATUS_STOP) ? null : (
             <div>
+                <Board />
                 <h3>Opened mines: {this.props.mainStore.openedMines}</h3>
                 <h3>Total mines: {this.props.mainStore.getMaxMines()}</h3>
+
             </div>);
     }
 

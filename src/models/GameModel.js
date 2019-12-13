@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import * as CONSTANTS from '../include/constants'
+import * as CONSTANTS from '../models/constants'
 import {action, observable, computed} from "mobx";
 
 export default class GameModel {

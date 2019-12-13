@@ -1,0 +1,6 @@
+export const GRID_ROWS = 5;
+export const GRID_COLS = 5;
+export const GAME_DIFFICULTLY = 1;
+export const GAME_STATUS_ONGOING = 'GAME_STATUS_ONGOING';
+export const GAME_STATUS_STOP_LOSE = 'GAME_STATUS_STOP_LOSE';
+export const GAME_STATUS_STOP_WON = 'GAME_STATUS_STOP_WON';

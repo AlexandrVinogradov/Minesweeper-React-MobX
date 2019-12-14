@@ -23,7 +23,8 @@ class Cell extends Component {
 
     render() {
         cellStyle.background = (this.props.cell.isFlagged) ? '#177a1e' : 
-                               (this.props.cell.opened && this.props.cell.isMine)  ? '#aa0000' : '#ccc';
+                               (this.props.cell.opened && this.props.cell.isMine)  ? '#aa0000' : 
+                               (this.props.cell.isMine) ? '#aa0000' : '#ccc';
         return (
             <button style={cellStyle}
                 onClick={this.openCell}

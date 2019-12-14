@@ -6,6 +6,7 @@ export default class GameModel {
     @observable gameStatus = CONSTANTS.GAME_STATUS_ONGOING; //GAME_STATUS_STOP
     @observable openedMines = 0; //нужно только для вывода тайьла
     @observable grid = {};
+    @observable gameDifficulty = 1;
 
 
     constructor() {
@@ -50,12 +51,20 @@ export default class GameModel {
     @action flaggedCell(row, col) {
         let cell = this.grid[row][col];
 
-        // if(cell.opened) {
-        //     return;
-        // }
 
         cell.isFlagged = !cell.isFlagged;
         console.log(cell.isFlagged);
+    }
+
+    @action increaseDifficulty() {
+        (this.gameDifficulty < 4) ? this.gameDifficulty++ : this.gameDifficulty;
+
+        this.buildGrid();
+    }
+    @action reduceDifficulty() {
+        (this.gameDifficulty >= 2) ? this.gameDifficulty-- : this.gameDifficulty;
+
+        this.buildGrid();
     }
 
     checkIfWin() {
@@ -108,7 +117,7 @@ export default class GameModel {
 
 
     getMaxMines() {
-        return (CONSTANTS.GRID_ROWS * CONSTANTS.GRID_COLS) / 5 * (CONSTANTS.GAME_DIFFICULTLY);
+        return (CONSTANTS.GRID_ROWS * CONSTANTS.GRID_COLS) / 5 * (this.gameDifficulty);
     }
 
     buildGrid() {

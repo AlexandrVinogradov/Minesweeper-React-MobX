@@ -28,6 +28,14 @@ class Game extends Component {
     startGame = () => {
         this.props.mainStore.startGame();
     }
+    increaseDifficulty = () => {
+        this.props.mainStore.increaseDifficulty();
+        console.log(this.props.mainStore.openedMines);
+    }
+    reduceDifficulty = () => {
+        this.props.mainStore.reduceDifficulty();
+        console.log(this.props.mainStore.openedMines);
+    }
 
     gameButtons() {
 
@@ -51,20 +59,27 @@ class Game extends Component {
         return (this.props.mainStore.gameStatus == CONSTANTS.GAME_STATUS_STOP) ? null : (
             <div>
                 <Board />
-                <h3>Opened mines: {this.props.mainStore.openedMines}</h3>
+                <h3>Opened fields: {this.props.mainStore.openedMines}/20</h3>
                 <h3>Total mines: {this.props.mainStore.getMaxMines()}</h3>
+
+                <button onClick={this.increaseDifficulty}>+</button>
+
+                Game Difficulty: {this.props.mainStore.gameDifficulty}/4
+
+                <button onClick={this.reduceDifficulty}>-</button>
 
             </div>);
     }
 
-    render = () =>
-        <div className="game">
+    render() {
+        return <div className="game">
             {this.gameStatus()}
             <div style={buttonsListStyle}>
                 {this.gameButtons()}
             </div>
             {this.gameBoard()}
         </div>
+    }
 }
 
 export default Game;

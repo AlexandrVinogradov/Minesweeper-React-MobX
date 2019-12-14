@@ -14,18 +14,18 @@ const boardStyle = {
     render() {
         let cols = [];
 
-        for (let i = 0; i < CONSTANTS.GRID_ROWS; i++) {
-            for (let k = 0; k < CONSTANTS.GRID_COLS; k++) {
+        for (let i = 0; i < this.props.mainStore.GRID_ROWS; i++) {
+            for (let k = 0; k < this.props.mainStore.GRID_COLS; k++) {
                 cols.push(<Cell key={this.index} cell={this.props.mainStore.grid[i][k]}/>);
             }
         }
-        boardStyle.width = 40 * CONSTANTS.GRID_COLS;
+        boardStyle.width = 40 * this.props.mainStore.GRID_COLS;
 
         return (
             <div className="board" style={boardStyle} >
                 { cols }
             </div>
-        );
+        );//
     }
 };
 

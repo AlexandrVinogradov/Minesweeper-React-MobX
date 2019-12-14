@@ -37,6 +37,17 @@ class Game extends Component {
         console.log(this.props.mainStore.openedMines);
     }
 
+
+    setGrid5x5 = () => {
+        this.props.mainStore.setGrid5x5();
+    }
+    setGrid10x10 = () => {
+        this.props.mainStore.setGrid10x10();
+    }
+    setGrid15x15 = () => {
+        this.props.mainStore.setGrid15x15();
+    }
+
     gameButtons() {
 
         let buttons = [];
@@ -59,7 +70,7 @@ class Game extends Component {
         return (this.props.mainStore.gameStatus == CONSTANTS.GAME_STATUS_STOP) ? null : (
             <div>
                 <Board />
-                <h3>Opened fields: {this.props.mainStore.openedMines}/20</h3>
+                <h3>Opened fields: {this.props.mainStore.openedMines}</h3>
                 <h3>Total mines: {this.props.mainStore.getMaxMines()}</h3>
 
                 <button onClick={this.increaseDifficulty}>+</button>
@@ -67,6 +78,13 @@ class Game extends Component {
                 Game Difficulty: {this.props.mainStore.gameDifficulty}/4
 
                 <button onClick={this.reduceDifficulty}>-</button>
+
+                <div>
+                    <button onClick={this.setGrid5x5}>5/5</button>
+                    <button onClick={this.setGrid10x10}>10/10</button>
+                    <button onClick={this.setGrid15x15}>15/15</button>
+                </div>
+
 
             </div>);
     }

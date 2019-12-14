@@ -7,7 +7,8 @@ export default class GameModel {
     @observable openedMines = 0; //нужно только для вывода тайьла
     @observable grid = {};
     @observable gameDifficulty = 1;
-
+    @observable GRID_ROWS = 5;
+    @observable GRID_COLS = 5;
 
     constructor() {
         this.buildGrid();
@@ -67,15 +68,36 @@ export default class GameModel {
         this.buildGrid();
     }
 
+    @action setGrid5x5() {
+        this.GRID_ROWS = 5;
+        this.GRID_COLS = 5;
+
+        this.buildGrid();
+    }
+    
+    @action setGrid15x15() {
+        this.GRID_ROWS = 15;
+        this.GRID_COLS = 15;
+
+        this.buildGrid();
+    }
+
+    @action setGrid10x10() {
+        this.GRID_ROWS = 10;
+        this.GRID_COLS = 10;
+
+        this.buildGrid();
+    }
+
     checkIfWin() {
         let openedCells = 0;
-        for (let r = 0; r < CONSTANTS.GRID_ROWS; r++) {
-            for (let c = 0; c < CONSTANTS.GRID_COLS; c++) {
+        for (let r = 0; r < this.GRID_ROWS; r++) {
+            for (let c = 0; c < this.GRID_COLS; c++) {
                 if (this.grid[r][c].opened) openedCells++;
             }
         }
         // как только счетчик открытых клеток доходит до 20 игра закончена(тру)
-        if (openedCells == ((CONSTANTS.GRID_ROWS * CONSTANTS.GRID_COLS) - this.getMaxMines())) {
+        if (openedCells == ((this.GRID_ROWS * this.GRID_COLS) - this.getMaxMines())) {
             this.gameOver(true);
         }
     }
@@ -83,10 +105,10 @@ export default class GameModel {
     openAdjacentCells(row, col) { // 1:1   => rowStart=0 rowEnd=2 colStart=0 colEnd=2
         // опреелем диапазон прилегающих строк
         let rowStart = (row == 0) ? 0 : row -1, // перескакивает на одну строку выше
-            rowEnd = (row >= (CONSTANTS.GRID_ROWS - 1)) ? row : row + 1, // перескакиваем на одну строку ниже
+            rowEnd = (row >= (this.GRID_ROWS - 1)) ? row : row + 1, // перескакиваем на одну строку ниже
         // опреелем диапазон прилегающих колонок
             colStart = (col == 0) ? 0 : col -1, // перескакивае на одну колонку левее 
-            colEnd = (col >= (CONSTANTS.GRID_COLS - 1)) ? col : col + 1; // перескакивае на одну колонку правее 
+            colEnd = (col >= (this.GRID_COLS - 1)) ? col : col + 1; // перескакивае на одну колонку правее 
 
         for (let r = rowStart; r <= rowEnd; r++) {
             for (let c = colStart; c <= colEnd; c++) {
@@ -100,9 +122,9 @@ export default class GameModel {
     getCellAdjacentMinesNumber(row, col) {
         let mines = 0,
             rowStart = (row == 0) ? 0 : row -1,
-            rowEnd = (row >= (CONSTANTS.GRID_ROWS - 1)) ? row : row + 1,
+            rowEnd = (row >= (this.GRID_ROWS - 1)) ? row : row + 1,
             colStart = (col == 0) ? 0 : col -1,
-            colEnd = (col >= (CONSTANTS.GRID_COLS - 1)) ? col : col + 1;
+            colEnd = (col >= (this.GRID_COLS - 1)) ? col : col + 1;
         // если в прилегающих клетках есть хоть одна мина mines != 0
         for (let r = rowStart; r <= rowEnd; r++) {
             for (let c = colStart; c <= colEnd; c++) {
@@ -117,15 +139,15 @@ export default class GameModel {
 
 
     getMaxMines() {
-        return (CONSTANTS.GRID_ROWS * CONSTANTS.GRID_COLS) / 5 * (this.gameDifficulty);
+        return (this.GRID_ROWS * this.GRID_COLS) / 5 * (this.gameDifficulty);
     }
 
     buildGrid() {
         let maxMines = this.getMaxMines(), addedMines = 0, grid = {}; //получаем количество мин (5)
 
-        for (let i=0; i < CONSTANTS.GRID_ROWS; i++) {
+        for (let i=0; i < this.GRID_ROWS; i++) {
             grid[i] = {};
-            for (let k=0; k < CONSTANTS.GRID_ROWS; k+= 1) { 
+            for (let k=0; k < this.GRID_ROWS; k+= 1) { 
                 grid[i][k] = { isMine: false, opened: false, row: i, col: k, isFlagged: false};  //  в каждую ячейку помещаяем объект
             }
         }
@@ -134,8 +156,8 @@ export default class GameModel {
 
             let mineAdded = false;
             while (!mineAdded) {
-                let randomRow = Math.floor(Math.random() * CONSTANTS.GRID_ROWS);  // записываем в переменную рандомное чисо [0:4]
-                let randomCol = Math.floor(Math.random() * CONSTANTS.GRID_COLS);  // записываем в переменную рандомное чисо [0:4]
+                let randomRow = Math.floor(Math.random() * this.GRID_ROWS);  // записываем в переменную рандомное чисо [0:4]
+                let randomCol = Math.floor(Math.random() * this.GRID_COLS);  // записываем в переменную рандомное чисо [0:4]
 
                 if (grid[randomRow][randomCol].isMine == false) {
                     grid[randomRow][randomCol].isMine = true; // в рандомную клетку добавляем мину

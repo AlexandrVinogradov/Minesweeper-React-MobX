@@ -6,6 +6,8 @@ const cellStyle = {
     width: 40,
     height: 40,
     display: 'block',
+    border: 'solid 2px #7d8485',
+    color: '#000000',
 }
 
 
@@ -24,7 +26,7 @@ class Cell extends Component {
     render() {
         cellStyle.background = (this.props.cell.isFlagged) ? '#177a1e' : 
                                (this.props.cell.opened && this.props.cell.isMine)  ? '#aa0000' : 
-                               (this.props.cell.isMine) ? '#aa0000' : '#ccc';
+                               (this.props.cell.isMine) ? '#aa0000' : '#cad8d9';
         return (
             <button style={cellStyle}
                 onClick={this.openCell}

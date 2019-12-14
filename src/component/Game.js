@@ -4,6 +4,7 @@ import { inject, observer } from 'mobx-react';
 import * as CONSTANTS from '../include/constants';
 import Navigation from "react-toolbox/lib/navigation";
 import Button from "react-toolbox/lib/button";
+// import s from './Game.module.css';
 
 const buttonsListStyle = {
     marginBottom: 30
@@ -73,19 +74,15 @@ class Game extends Component {
                 <h3>Opened fields: {this.props.mainStore.openedMines}</h3>
                 <h3>Total mines: {this.props.mainStore.getMaxMines()}</h3>
 
-                <button onClick={this.increaseDifficulty}>+</button>
-
-                Game Difficulty: {this.props.mainStore.gameDifficulty}/4
-
-                <button onClick={this.reduceDifficulty}>-</button>
+                <Button raised label="-" onClick={this.reduceDifficulty}></Button>
+                Difficulty:{this.props.mainStore.gameDifficulty}/4
+                <Button raised label="+" onClick={this.increaseDifficulty}></Button>
 
                 <div>
-                    <button onClick={this.setGrid5x5}>5/5</button>
-                    <button onClick={this.setGrid10x10}>10/10</button>
-                    <button onClick={this.setGrid15x15}>15/15</button>
+                    <Button raised label="5/5"   onClick={this.setGrid5x5}></Button>
+                    <Button raised label="10/10" onClick={this.setGrid10x10}></Button>
+                    <Button raised label="15/15" onClick={this.setGrid15x15}></Button>
                 </div>
-
-
             </div>);
     }
 

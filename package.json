@@ -1,13 +1,11 @@
 {
   "name": "minesweeper",
   "version": "1.0.0",
-
   "scripts": {
     "start": "webpack-dev-server --hot --open",
     "lint": "eslint src",
     "test": "mocha -w --compilers js:babel-core/register src/**/*.spec.js"
   },
-
   "devDependencies": {
     "babel-core": "^6.9.1",
     "babel-loader": "^7.1.2",

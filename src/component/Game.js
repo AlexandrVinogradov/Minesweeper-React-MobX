@@ -4,10 +4,13 @@ import { inject, observer } from 'mobx-react';
 import * as CONSTANTS from '../include/constants';
 import Navigation from "react-toolbox/lib/navigation";
 import Button from "react-toolbox/lib/button";
-// import s from './Game.module.css';
 
 const buttonsListStyle = {
-    marginBottom: 30
+    paddingLeft: 25,
+    marginBottom: 10
+}
+const titleStyle = {
+    paddingLeft: 50
 }
 
 @inject('mainStore') @observer
@@ -16,29 +19,24 @@ class Game extends Component {
     gameStatus() {
         if (this.props.mainStore.gameStatus == CONSTANTS.GAME_STATUS_STOP_WON) {
             return (
-                <h2>You have won!</h2>
+                <h2 style={titleStyle}>Victory!</h2>
             )
         }
         if (this.props.mainStore.gameStatus == CONSTANTS.GAME_STATUS_STOP_LOSE) {
             return (
-                <h2>You have Lose!</h2>
+                <h2 style={titleStyle}>You Lose!</h2>
             )
         }
     }
-
     startGame = () => {
         this.props.mainStore.startGame();
     }
     increaseDifficulty = () => {
         this.props.mainStore.increaseDifficulty();
-        console.log(this.props.mainStore.openedMines);
     }
     reduceDifficulty = () => {
         this.props.mainStore.reduceDifficulty();
-        console.log(this.props.mainStore.openedMines);
     }
-
-
     setGrid5x5 = () => {
         this.props.mainStore.setGrid5x5();
     }
@@ -48,9 +46,7 @@ class Game extends Component {
     setGrid15x15 = () => {
         this.props.mainStore.setGrid15x15();
     }
-
     gameButtons() {
-
         let buttons = [];
 
         switch (this.props.mainStore.gameStatus) {

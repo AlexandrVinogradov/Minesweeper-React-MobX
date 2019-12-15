@@ -1,16 +1,13 @@
 import React, {Component} from 'react';
 import { inject, observer } from 'mobx-react';
-import * as CONSTANTS from "../include/constants";
 import Cell from './Cell'
 
 const boardStyle = {
     display: 'inline-flex',
-    flexDirection: 'row',
     flexWrap: 'wrap',
 }
 
 @inject('mainStore') @observer class Board extends Component {
-
     render() {
         let cols = [];
 
@@ -25,7 +22,7 @@ const boardStyle = {
             <div className="board" style={boardStyle} >
                 { cols }
             </div>
-        );//
+        );
     }
 };
 

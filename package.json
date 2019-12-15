@@ -1,10 +1,14 @@
 {
   "name": "minesweeper",
   "version": "1.0.0",
+  "homepage": "https://alexandrvinogradov.github.io/Minesweeper-React-MobX",
   "scripts": {
     "start": "webpack-dev-server --hot --open",
     "lint": "eslint src",
-    "test": "mocha -w --compilers js:babel-core/register src/**/*.spec.js"
+    "test": "mocha -w --compilers js:babel-core/register src/**/*.spec.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "build": "react-scripts build"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
@@ -28,6 +32,7 @@
     "webpack-dev-server": "^2.7.1"
   },
   "dependencies": {
+    "gh-pages": "^2.1.1",
     "material-ui": "^1.0.0-beta.17",
     "mobx": "^3.0.0",
     "mobx-react": "^4.1.0",

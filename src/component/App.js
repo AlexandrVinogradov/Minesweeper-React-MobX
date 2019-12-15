@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'mobx-react';
-import Game from './Game'
-import GameModel from '../models/GameModel'
+import Game from './Game';
+import GameModel from '../models/GameModel';
 
 const App = () => {
 

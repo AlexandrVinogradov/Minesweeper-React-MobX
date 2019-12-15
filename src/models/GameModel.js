@@ -1,4 +1,4 @@
-import * as CONSTANTS from '../include/constants'
+import * as CONSTANTS from './constants';
 import {action, observable} from "mobx";
 
 export default class GameModel {
@@ -71,17 +71,15 @@ export default class GameModel {
 
         this.buildGrid();
     }
-    
-    @action setGrid15x15() {
-        this.GRID_ROWS = 15;
-        this.GRID_COLS = 15;
-
-        this.buildGrid();
-    }
-
     @action setGrid10x10() {
         this.GRID_ROWS = 10;
         this.GRID_COLS = 10;
+
+        this.buildGrid();
+    }
+    @action setGrid15x15() {
+        this.GRID_ROWS = 15;
+        this.GRID_COLS = 15;
 
         this.buildGrid();
     }
@@ -131,7 +129,6 @@ export default class GameModel {
         }
         return mines;
     }
-
 
     getMaxMines() {
         //count the number of mines

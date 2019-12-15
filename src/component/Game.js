@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Board from './Board';
 import { inject, observer } from 'mobx-react';
-import * as CONSTANTS from '../include/constants';
+import * as CONSTANTS from '../models/constants';
 import Navigation from "react-toolbox/lib/navigation";
 import Button from "react-toolbox/lib/button";
 
@@ -67,8 +67,8 @@ class Game extends Component {
         return (this.props.mainStore.gameStatus == CONSTANTS.GAME_STATUS_STOP) ? null : (
             <div>
                 <Board />
-                <h3>Opened fields: {this.props.mainStore.openedMines}</h3>
-                <h3>Total mines: {this.props.mainStore.getMaxMines()}</h3>
+                <p>Opened fields: {this.props.mainStore.openedMines}</p>
+                <p>Total mines: {this.props.mainStore.getMaxMines()}</p>
 
                 <Button raised label="-" onClick={this.reduceDifficulty}></Button>
                 Difficulty:{this.props.mainStore.gameDifficulty}/4

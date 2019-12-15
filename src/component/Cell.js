@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
-import * as CONSTANTS from '../include/constants'
+import * as CONSTANTS from '../models/constants';
 
 const cellStyle = {
     width: 40,
     height: 40,
     display: 'block',
-    border: 'solid 2px #7d8485',
+    border: 0,
+    boxShadow: '0 0 10px rgba(0,0,0,0.3)',
     color: '#000000',
 }
 
@@ -23,8 +24,9 @@ class Cell extends Component {
 
     render() {
         cellStyle.background = (this.props.cell.isFlagged) ? '#000000' :
-                               (this.props.cell.opened && this.props.cell.isMine) ? '#aa0000' :
-                               (this.props.cell.isMine) ? '#aa0000' : '#cad8d9';
+                               (this.props.cell.opened && this.props.cell.isMine) ? '#e35260' : 
+                               '#52dae3'; // if you want to see mines - remove this line of code (28)
+                               (this.props.cell.isMine) ? '#aa0000' : '#52dae3';
 
         return <button style={cellStyle}
             onClick={this.openCell}

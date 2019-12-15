@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { inject, observer } from 'mobx-react';
-import Cell from './Cell'
+import Cell from './Cell';
 
 const boardStyle = {
     display: 'inline-flex',

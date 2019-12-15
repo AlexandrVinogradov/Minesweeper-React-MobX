@@ -26,7 +26,7 @@ class Cell extends Component {
         cellStyle.background = (this.props.cell.isFlagged) ? '#000000' :
                                (this.props.cell.opened && this.props.cell.isMine) ? '#e35260' : 
                                '#52dae3'; // if you want to see mines - remove this line of code (28)
-                               (this.props.cell.isMine) ? '#aa0000' : '#52dae3';
+                               (this.props.cell.isMine) ? '#e35260' : '#52dae3';
 
         return <button style={cellStyle}
             onClick={this.openCell}

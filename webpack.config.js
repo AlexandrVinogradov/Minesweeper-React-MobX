@@ -2,6 +2,14 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const isDev = process.env.NODE_ENV === 'development';
+const plugins = [
+  new HtmlWebpackPlugin({template: './index.html'}),
+]
+if(isDev) {
+  plugins.push(new webpack.HotModuleReplacementPlugin())
+}
+
 module.exports = {
   devtool: 'eval',
   entry: ['./src/index'],
@@ -10,7 +18,7 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/'
   },
-  plugins: [new webpack.HotModuleReplacementPlugin(), new HtmlWebpackPlugin()],
+  plugins,
   resolve: {
     extensions: ['.js', '.jsx']
   },

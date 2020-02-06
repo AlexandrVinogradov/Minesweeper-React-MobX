@@ -1,51 +1,31 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'eval',
-  entry: [
-    './src/index'
-  ],
+  entry: ['./src/index'],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'build'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/'
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
+  plugins: [new webpack.HotModuleReplacementPlugin(), new HtmlWebpackPlugin()],
   resolve: {
     extensions: ['.js', '.jsx']
   },
   module: {
     rules: [
-        {
-            test: /\.jsx?$/,
-            use: ['babel-loader'],
-            include: path.join(__dirname, 'src')
-        },
-        {
-            test: /\.css$/,
-            use: [
-                'style-loader',
-                {
-                    loader: "css-loader",
-                    options: {
-                        modules: true, // default is false
-                        sourceMap: true,
-                        importLoaders: 1,
-                        localIdentName: "[name]--[local]--[hash:base64:8]"
-                    }
-                }
-            ],
-            //include: path.join(__dirname, 'node_modules'), // oops, this also includes flexboxgrid
-            //exclude: /flexboxgrid/ // so we have to exclude it
-        },
-        {
-            test: /\.scss$/,
-            use: [{
-                loader: "style-loader" // creates style nodes from JS strings
-            }, {
+      {
+        test: /\.jsx?$/,
+        use: ['babel-loader'],
+        include: path.join(__dirname, 'src')
+      },
+      {
+        test: /\.css$/,
+        use: [
+            'style-loader',
+            {
                 loader: "css-loader",
                 options: {
                     modules: true, // default is false
@@ -53,27 +33,26 @@ module.exports = {
                     importLoaders: 1,
                     localIdentName: "[name]--[local]--[hash:base64:8]"
                 }
-            }, {
-                loader: "sass-loader" // compiles Sass to CSS
-            }],
-            //include: path.join(__dirname, 'node_modules'), // oops, this also includes flexboxgrid
-            //exclude: /flexboxgrid/ // so we have to exclude it
-        },
-        {
-            test: /\.(png|jpg|gif)$/,
-            use: [
-                {
-                    loader: 'url-loader',
-                    options: {
-                        limit: 8192
-                    }
-                }
-            ]
-        },
-        {
-            test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
-            loader: 'file-loader'
-        }
+            }
+        ],
+        //include: path.join(__dirname, 'node_modules'), // oops, this also includes flexboxgrid
+        //exclude: /flexboxgrid/ // so we have to exclude it
+    },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+        loader: 'file-loader'
+      }
     ]
   }
 };

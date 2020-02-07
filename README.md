@@ -1,6 +1,8 @@
 Minesweeper Game built with React+MobX
 
-Setup: `yarn install and yarn start`
+See the [Demo](https://alexandrvinogradov.github.io/Minesweeper-React-MobX/)
+
+Setup: `yarn and yarn start`
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 ![Screenshot_4](https://user-images.githubusercontent.com/52967962/70863040-f668d200-1f54-11ea-82fd-84aebc4559f9.jpg) </br></br>

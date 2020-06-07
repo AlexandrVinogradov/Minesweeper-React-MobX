@@ -2535,11 +2535,6 @@ html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
-html-webpack-root-plugin@^0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/html-webpack-root-plugin/-/html-webpack-root-plugin-0.10.0.tgz#f16e34c16b8ab8c71779ad9af5bfb90aab953de2"
-  integrity sha512-rH27SPz2b8TmDZ7sL+7No1XRcnlYIJIfIMI843AdWu26M8xqDvfFnByuyNO97CaBvvuA6/xoYkKio358zBbiJA==
-
 htmlparser2@^3.3.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-3.10.1.tgz#bd679dc3f59897b6a34bb10749c855bb53a9392f"
@@ -5193,8 +5188,9 @@ websocket-driver@>=0.5.1:
     websocket-extensions ">=0.1.1"
 
 websocket-extensions@>=0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.1.tgz#76899499c184b6ef754377c2dbb0cd6cb55d29e7"
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.4.tgz#7f8473bc839dfd87608adb95d7eb075211578a42"
+  integrity sha512-OqedPIGOfsDlo31UNwYbCFMSaO9m9G/0faIHj5/dZFDMFqPTcx6UwqyOy3COEaEOg/9VsGIpdqn62W5KhoKSpg==
 
 whatwg-fetch@>=0.10.0:
   version "2.0.3"

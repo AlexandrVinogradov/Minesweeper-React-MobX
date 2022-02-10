@@ -2535,11 +2535,6 @@ html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
-html-webpack-root-plugin@^0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/html-webpack-root-plugin/-/html-webpack-root-plugin-0.10.0.tgz#f16e34c16b8ab8c71779ad9af5bfb90aab953de2"
-  integrity sha512-rH27SPz2b8TmDZ7sL+7No1XRcnlYIJIfIMI843AdWu26M8xqDvfFnByuyNO97CaBvvuA6/xoYkKio358zBbiJA==
-
 htmlparser2@^3.3.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-3.10.1.tgz#bd679dc3f59897b6a34bb10749c855bb53a9392f"
@@ -4933,8 +4928,9 @@ type-is@~1.6.15:
     mime-types "~2.1.15"
 
 ua-parser-js@^0.7.9:
-  version "0.7.14"
-  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.14.tgz#110d53fa4c3f326c121292bbeac904d2e03387ca"
+  version "0.7.31"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.31.tgz#649a656b191dffab4f21d5e053e27ca17cbff5c6"
+  integrity sha512-qLK/Xe9E2uzmYI3qLeOmI0tEOt+TBBQyUIAh4aAgU05FVYzeZrKUdkAZfBNVGRaHVgV0TDkdEngJSw/SyQchkQ==
 
 uglify-js@3.4.x:
   version "3.4.10"
